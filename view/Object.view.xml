@@ -1,0 +1,67 @@
+<mvc:View
+	controllerName="nswl2.Worklist2.controller.Object"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:form="sap.ui.layout.form"
+	xmlns:semantic="sap.f.semantic">
+
+	<semantic:SemanticPage
+		id="page"
+		headerPinnable="false"
+		toggleHeaderOnTitleClick="false"
+		busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
+
+		<semantic:titleHeading>
+			<Title
+				text="{Lastname}"
+				level="H2"/>
+		</semantic:titleHeading>
+
+		<semantic:headerContent>
+			<ObjectNumber
+			/>
+            <OverflowToolbar id="otb1">
+                <Label text="Buttons:"/>
+                <ToolbarSpacer/>
+                <Button text="New" type="Transparent"/>
+                <Button text="Open" type="Transparent"/>
+                <Button text="Save" type="Transparent"/>
+                <Button text="Save as" type="Transparent"/>
+                <Button text="Cut" type="Transparent"/>
+                <Button text="Copy" type="Transparent"/>
+                <Button text="Paste" type="Transparent"/>
+                <Button text="Undo" type="Transparent"/>
+                <Button text="Redo" type="Transparent"/>
+            </OverflowToolbar>           
+		</semantic:headerContent>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+		</semantic:sendEmailAction>
+        <semantic:content>   
+            <IconTabBar id="iconTabBar"
+                    expanded="{device>/isNoPhone}"
+                    class="sapUiResponsiveContentPadding">
+                <items>
+                <IconTabFilter icon="sap-icon://hint" key="info">
+                    <form:SimpleForm>
+                        <form:content>
+                            <Label text="{i18n>firstNameLabel}"/>
+                            <Text text="{Firstname}"/>
+                            <Label text="{i18n>postDescriptionLabel}"/>
+                            <Text text="{Description}"/>
+                        </form:content>
+                    </form:SimpleForm>
+                </IconTabFilter>
+                <IconTabFilter icon="sap-icon://inspection" key="statistics">
+                    <Text text="Viewed 55555 times" id="viewCounter"/>
+                </IconTabFilter>
+                </items>
+            </IconTabBar>
+    
+        </semantic:content>        
+
+	</semantic:SemanticPage>
+
+</mvc:View>
